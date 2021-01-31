@@ -1,7 +1,7 @@
 # Lottery-draw
 
 ## Description
-Lottery draw based on smart contract to approve public and fair, it was used on conflux 2021 annual part
+Lottery draw based on smart contract to approve public and fair, it was used on conflux 2021 annual party
 
 ## Preparation
 1. Deploy Contract `luckyDraw`
