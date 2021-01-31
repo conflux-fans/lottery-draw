@@ -1,0 +1,8 @@
+{
+  "main": "./contracts/luckyDraw.sol",
+  "deploy": "./build/contracts/luckyDraw.json",
+  "compilers": {
+    "cfxtruffle": "0.0.8",
+    "solc": "0.7.1"
+  }
+}

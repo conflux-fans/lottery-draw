@@ -1,0 +1,6 @@
+{
+    "from": "your-email@qq.com",
+    "password":"your-password",
+    "smtpHost": "smtp.qq.com",
+    "smtpPort": "587"
+}
