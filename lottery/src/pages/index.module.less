@@ -1,0 +1,34 @@
+@import './../styles/variables.less';
+.connect {
+  margin-top: 20px;
+}
+
+// copy from ConnectPortalButton Component
+.button {
+  background-color: @gold;
+  width: 220px;
+  height: 64px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 64px;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 20px;
+  display: inline-block;
+
+  &.disable {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+}
+
+.tipsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .tip {
+    color: #777777;
+  }
+}

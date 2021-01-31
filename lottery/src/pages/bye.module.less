@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.desc {
+  font-size: 96px;
+  font-weight: 500;
+  color: #cca677;
+  margin-top: 43px;
+}
+
+.button {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  width: 160px;
+  background: #ccc;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  display: none;
+  &.show {
+    display: inherit;
+  }
+}

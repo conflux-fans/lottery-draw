@@ -1,0 +1,113 @@
+@import '../styles/variables';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 560px;
+  width: 480px;
+  input,
+  textarea {
+    width: 480px;
+    box-sizing: border-box;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 16px 24px;
+    &:focus {
+      outline: none;
+    }
+  }
+  textarea {
+    resize: none;
+    height: 76px;
+    border-radius: 0;
+    display: block;
+    padding: 0 24px;
+    position: relative;
+    margin: 26px 0;
+  }
+}
+
+.title {
+  user-select: none;
+  font-size: 30px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.textarea_wrapper {
+  position: relative;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 16px;
+    display: block;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  &::before {
+    border-radius: 4px 4px 0 0;
+    top: 10px;
+  }
+  &::after {
+    border-radius: 0 0 4px 4px;
+    bottom: 10px;
+  }
+  .textarea_count_box {
+    position: absolute;
+    bottom: 26px;
+    right: 16px;
+    font-size: 12px;
+    user-select: none;
+    .number {
+      color: #cca677;
+    }
+    .number_all {
+      color: #8b8b8d;
+    }
+  }
+}
+
+.submit {
+  user-select: none;
+  width: 480px;
+  height: 64px;
+  margin-top: 38px;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 64px;
+  text-align: center;
+}
+
+.can_submit {
+  background: @gold;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.cannot_submit {
+  background: #888888;
+  transition: 0.2s;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.postscript {
+  user-select: none;
+  width: 480px;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+  opacity: 0.29;
+}

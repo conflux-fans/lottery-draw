@@ -1,0 +1,55 @@
+@import './../styles/variables.less';
+
+.box {
+  height: 80px;
+  width: 800px;
+  margin: 15px 0;
+  display: flex;
+}
+
+.pic {
+  width: 80px;
+  height: 80px;
+  margin-right: 24px;
+  border-radius: 50%;
+}
+
+.infobox {
+  width: 696px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.up {
+  height: 30px;
+  display: flex;
+  .name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 28px;
+    margin-right: 24px;
+  }
+  .desc {
+    font-size: 18px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: @gold;
+    line-height: 25px;
+  }
+}
+
+.down {
+  width: 696px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #cccccc;
+  line-height: 20px;
+  margin-top: 10px;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
