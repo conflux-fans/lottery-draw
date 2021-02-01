@@ -1,12 +1,8 @@
+import x from '../images/avatar/x.jpg';
 
+const imgList = ['x.jpg'];
 
-const imgList = [
-
-];
-
-const picList = [
-  
-];
+const picList = [x];
 
 const personArray = [];
 for (let i = 0; i < imgList.length; i += 1) {

@@ -1,12 +1,11 @@
 {
-  "name": "conflux-website",
+  "name": "lucky-draw-website",
   "private": true,
-  "description": "Conflux Website",
+  "description": "Lucky Draw Website",
   "version": "2.0.0",
   "license": "0BSD",
   "keywords": [
     "gatsby",
-    "conflux",
     "blockchain",
     "token",
     "treegraph"
@@ -81,9 +80,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Conflux-Dev/website"
+    "url": "https://github.com/conflux-fans/lottery-draw"
   },
   "bugs": {
-    "url": "https://github.com/Conflux-Dev/website/issues"
+    "url": "https://github.com/conflux-fans/lottery-draw/issues"
   }
 }

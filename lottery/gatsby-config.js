@@ -6,10 +6,9 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Conflux`,
-    description: `conflux lottery.`,
-    author: `conflux`,
-    siteUrl: `https://confluxnetwork.org`,
+    title: `lucky draw`,
+    description: `lucky draw.`,
+    author: `x`,
   },
 
   plugins: [
@@ -51,8 +50,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Conflux Website`,
-        short_name: `conflux`,
+        name: `Lucky Draw Website`,
+        short_name: `Lucky`,
         start_url: `/`,
         background_color: `#7c426d`,
         theme_color: `#7c426d`,
@@ -125,4 +124,4 @@ module.exports = {
      */
     `gatsby-plugin-sitemap`,
   ],
-}
+};
