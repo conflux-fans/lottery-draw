@@ -3,7 +3,7 @@
     "networkId": "11029",
     "from": {
         "address": "0x19413D31D0937A46F454BFaa30A6b9638Dad56DA",
-        "privateKey": "0x1358270965E64D4717EDDE4096E7DD05B18E64E2423EA73C98979EF5F4BFAF44"
+        "privateKey": "xxx"
     },
     "whiteList": [
         "0xf3cbbd162dda0809be3983ba707d137aa93fff93d3d219a9032077c68176e0ee",

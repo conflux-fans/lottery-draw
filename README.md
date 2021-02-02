@@ -9,7 +9,8 @@ Lottery draw based on smart contract to approve public and fair, it was used on 
 1. Deploy Contract `luckyDraw`
 
 ```sh
-cfxtruffle --deploy reset
+$ cd smartContract
+$ cfxtruffle --deploy reset
 ```
 
 2. Deploy frontend `lottery`
@@ -19,14 +20,17 @@ cfxtruffle --deploy reset
 - `yarn develop`
 - `yarn build`
 
-## How to use contract
+## How to use
 
 1. Send verify code to candidates' emails using [`codeGenerator`](./codeGenerator/readme.md)
-2. Initial white list in contract and set draw plans use [the script ](./smartContract/execute/run.js)
-3. Initial white list in frontend
-4. Candidates register with wishes and blessing
-5. Draw
+2. `keccas356 hash of verify codes` will be generated in logs.txt, use hashes to initial white list in contract and frontend
+2. Initial white list and set draw plans for contract use [the script ](./smartContract/execute/run.js)
+3. Config frontend follow [how to use frontend](#jump)
+4. Candidates register with wishes and blessing from frontend or call contract method `register`
+5. Draw by drawer from frontend or call contract method `draw`
+6. Cfx will auto send to winner's account
 
+<span id="jump"></span>
 ## How to use frontend
 
 ### 1. Config:
@@ -34,7 +38,7 @@ cfxtruffle --deploy reset
 1. add contract abi in `/src/utils/abi.json`, add contract address in `/src/utils/config.js`.
 2. add prize info in `/src/utils/config.js`, include background image and prize detail
 3. add lucky guys' avatar image in `/src/images/avatar`, and config image reference in `/src/utils/data.js`.
-4. add verify code and lucky guys' name mapping in `/src/utils/nameHash.json`, verify code comes by `codeGenerator`.
+4. add keccak256 hash of verify code and lucky guys' name mapping in `/src/utils/nameHash.json`, verify code comes by `codeGenerator`.
 5. customize end page style and content in `/src/pages/bye.js`.
 
 ### 2. Notes:
