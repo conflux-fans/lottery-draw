@@ -23,7 +23,7 @@ $ cfxtruffle --deploy reset
 ## How to use
 
 1. Send verify code to candidates' emails using [`codeGenerator`](./codeGenerator/readme.md)
-2. `keccas356 hash of verify codes` will be generated in logs.txt, use hashes to initial white list in contract and frontend
+2. `keccas256 hash of verify codes` will be generated in logs.txt, use hashes to initial white list in contract and frontend
 2. Initial white list and set draw plans for contract use [the script ](./smartContract/execute/run.js)
 3. Config frontend follow [how to use frontend](#jump)
 4. Candidates register with wishes and blessing from frontend or call contract method `register`
