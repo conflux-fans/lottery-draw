@@ -3,7 +3,8 @@ var content = require("../build/contracts/LuckyDraw.json");
 const sdk = require("js-conflux-sdk");
 const { genBatchVerifyInfo } = require("../lib/codeGen");
 const { send } = require("@openzeppelin/test-helpers");
-const { cfx, iluckyDraw, sender, whiteList, drawers, registersCode, networkType } = initEnv("main")
+const fs = require("fs")
+const { cfx, iluckyDraw, sender, whiteList, drawers, registersCode, networkType } = initEnv("test")
 
 run()
 // decodeDrawEvent()
@@ -16,8 +17,11 @@ function initEnv(netType) {
 
     const cfx = new sdk.Conflux({
         url: env.url,
+        networkId: env.networkId - 10000,
         // logger: console
     })
+
+    console.log(`env.networkId:${env.networkId}`, `content.networks[env.networkId]:`, content.networks[env.networkId])
 
     const iluckyDraw = cfx.Contract({ abi: content.abi, address: content.networks[env.networkId].address })
     cfx.wallet.addPrivateKey(env.from.privateKey)
@@ -37,7 +41,7 @@ async function run() {
         const verifyInfos = genBatchVerifyInfo(40);
         console.log("verifyInfos:", verifyInfos)
         whiteList.push(...verifyInfos.map(i => i.hash))
-        registersCode.push(...verifyInfos.map(i => i.code))
+        registersCode.push(...verifyInfos.slice(0, 30).map(i => i.code))
     }
 
     await initialContract()
@@ -122,3 +126,11 @@ async function decodeDrawEvent() {
     const receipt = await cfx.getTransactionReceipt("0x2058be9d04f9ef1225030e1775a6e2f778cbe21653e31c8728303fc958f0fa5a")
     console.log("draw info:", iluckyDraw.abi.decodeLog(receipt.logs[0]).object.drawInfo.luckyGuys)
 }
+
+process.on('uncaughtException', (err, origin) => {
+    fs.writeSync(
+        process.stderr.fd,
+        `Caught exception: ${err}\n` +
+        `Exception origin: ${origin}`
+    );
+});

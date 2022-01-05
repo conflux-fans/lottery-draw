@@ -15,7 +15,7 @@
     "@openzeppelin/contracts": "^3.3.0",
     "@openzeppelin/test-helpers": "^0.5.10",
     "assertion-error": "^1.1.0",
-    "js-conflux-sdk": "^1.1.6"
+    "js-conflux-sdk": "^1.7.3"
   },
   "devDependencies": {
     "prettier": "^2.2.1",

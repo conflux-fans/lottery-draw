@@ -1,5 +1,5 @@
 {
-    "url": "ws://main.confluxrpc.org/ws",
+    "url": "https://main.confluxrpc.com",
     "networkId": "11029",
     "from": {
         "address": "0x19413D31D0937A46F454BFaa30A6b9638Dad56DA",
