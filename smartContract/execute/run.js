@@ -41,13 +41,19 @@ async function run() {
         const verifyInfos = genBatchVerifyInfo(40);
         console.log("verifyInfos:", verifyInfos)
         whiteList.push(...verifyInfos.map(i => i.hash))
-        registersCode.push(...verifyInfos.slice(0, 30).map(i => i.code))
+        registersCode.push(...verifyInfos.map(i => i.code))
+        
     }
-
+    
+    await reset()
     await initialContract()
     await register()
     await setDrawer()
     await setStartTime()
+}
+
+async function reset() {
+    await iluckyDraw.reset(true, true).sendTransaction({ from: sender }).executed()
 }
 
 async function initialContract() {
