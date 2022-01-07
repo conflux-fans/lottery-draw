@@ -3,7 +3,7 @@ var content = require("../build/contracts/LuckyDraw.json");
 const sdk = require("js-conflux-sdk");
 const { genBatchVerifyInfo } = require("../lib/codeGen");
 const { send } = require("@openzeppelin/test-helpers");
-const fs = require("fs")
+const fs = require("fs");
 const { cfx, iluckyDraw, sender, whiteList, drawers, registersCode, networkType } = initEnv("test")
 
 run()
@@ -38,13 +38,12 @@ function initEnv(netType) {
 
 async function run() {
     if (networkType == "test") {
-        const verifyInfos = genBatchVerifyInfo(40);
+        const verifyInfos = genBatchVerifyInfo(40 - whiteList.length);
         console.log("verifyInfos:", verifyInfos)
         whiteList.push(...verifyInfos.map(i => i.hash))
         registersCode.push(...verifyInfos.map(i => i.code))
-        
     }
-    
+
     await reset()
     await initialContract()
     await register()
@@ -81,21 +80,18 @@ async function initialContract() {
     // return
 
     // add plan 
-    await iluckyDraw.addDrawPlan(5, 1, 5, 66e18,).sendTransaction({ from: sender }).executed()
-    await iluckyDraw.addDrawPlan(5, 2, 5, 66e18,).sendTransaction({ from: sender }).executed()
-    await iluckyDraw.addDrawPlan(4, 1, 4, 88e18,).sendTransaction({ from: sender }).executed()
-    await iluckyDraw.addDrawPlan(4, 2, 4, 88e18,).sendTransaction({ from: sender }).executed()
-    await iluckyDraw.addDrawPlan(3, 1, 3, 166e18,).sendTransaction({ from: sender }).executed()
-    await iluckyDraw.addDrawPlan(3, 2, 3, 166e18,).sendTransaction({ from: sender }).executed()
-    await iluckyDraw.addDrawPlan(2, 1, 3, 188e18,).sendTransaction({ from: sender }).executed()
-    await iluckyDraw.addDrawPlan(1, 1, 2, 288e18,).sendTransaction({ from: sender }).executed()
-    await iluckyDraw.addDrawPlan(0, 1, 1, 500e18,).sendTransaction({ from: sender }).executed()
+    await iluckyDraw.addDrawPlan(5, 1, 4, 0).sendTransaction({ from: sender }).executed()
+    await iluckyDraw.addDrawPlan(5, 2, 4, 0).sendTransaction({ from: sender }).executed()
+    await iluckyDraw.addDrawPlan(4, 1, 5, 0).sendTransaction({ from: sender }).executed()
+    await iluckyDraw.addDrawPlan(3, 1, 3, 0).sendTransaction({ from: sender }).executed()
+    await iluckyDraw.addDrawPlan(2, 1, 2, 0).sendTransaction({ from: sender }).executed()
+    await iluckyDraw.addDrawPlan(1, 1, 1, 0).sendTransaction({ from: sender }).executed()
+
     console.log("add draw plan done")
 
     console.log("whitlist num:", await iluckyDraw.getWhiteListNum())
     console.log("draw plan num:", await iluckyDraw.getDrawPlanNum())
     console.log("next draw step:", await iluckyDraw.nextDrawStep())
-    console.log("check is registerd:", await iluckyDraw.checkIsRegisterd(sender))
     console.log("get player:", await iluckyDraw.getPlayerByAddress(sender))
 }
 
@@ -105,12 +101,13 @@ async function register() {
         const account = cfx.wallet.addRandom();
         let tx = cfx.sendTransaction({ from: sender, to: account.address, value: 5e17, nonce: nonce++ })
         await tx;
-        await iluckyDraw.register(registersCode[i], i.toString(), i.toString()).sendTransaction({ from: account })
+        await iluckyDraw.register(registersCode[i], `我是第${i}个注册的`, `给我个iphone吧`).sendTransaction({ from: account })
         if (i == registersCode.length - 1) {
             await tx.executed()
         }
         console.log(`user ${account} register ${registersCode[i]} done`)
     }
+    // console.log("check is registerd:", await iluckyDraw.checkIsRegisterd(sender))
     console.log("registered done:", registersCode.length)
 }
 
